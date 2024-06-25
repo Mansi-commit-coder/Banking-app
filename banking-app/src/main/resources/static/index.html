@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking App</title>
+    <!-- Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS for additional styling -->
+    <style>
+        body {
+            background-image: url('background.gif'); /* Replace 'background.gif' with your actual GIF file path */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            padding-top: 50px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.9); /* Add transparency to container */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow-y: auto; /* Enable vertical scrolling for container */
+            max-height: 600px; /* Increased max-height for a longer container */
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .list-group-item {
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+        .delete-btn {
+            margin-top: -5px;
+            margin-left: 10px;
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 class="text-center mb-4">Banking App</h2>
+
+    <!-- Form to add new account -->
+    <form id="accountForm">
+        <div class="form-group">
+            <input type="text" class="form-control" id="accountHolderName" placeholder="Enter Account Holder Name" required>
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" id="balance" placeholder="Enter Initial Balance" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+    </form>
+
+    <hr>
+
+    <!-- Accounts headline -->
+    <h3>All Accounts:</h3>
+
+    <!-- List to display accounts -->
+    <ul id="accountsList" class="list-group">
+        <!-- Accounts will be dynamically added here -->
+    </ul>
+
+    <!-- Scroll to top button -->
+    <button class="btn btn-primary scroll-to-top" onclick="scrollToTop()">Scroll to Top</button>
+</div>
+
+<!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Custom JavaScript -->
+<script src="main.js"></script>
+
+<script>
+    // Function to scroll to top of container
+    function scrollToTop() {
+        $('.container').scrollTop(0);
+    }
+
+    // Show/hide scroll button based on container scroll position
+    $('.container').scroll(function() {
+        var scrollPos = $(this).scrollTop();
+        if (scrollPos > 0) {
+            $('.scroll-to-top').fadeIn();
+        } else {
+            $('.scroll-to-top').fadeOut();
+        }
+    });
+</script>
+</body>
+</html>
